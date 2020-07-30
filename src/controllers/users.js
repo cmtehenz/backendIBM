@@ -18,15 +18,6 @@ const login = ({ db, jwt, jwtSecret }) => async(req, res) => {
 const get = ({ db }) => async(req, res) => {
   const users = await db('users').select()
   res.send(users)
-  
-  // const { user } = res.locals
-  // if (user.role === 'admin') {
-  //   const users = await db('users').select()
-  //   res.send(users)
-  // } else {
-  //   const users = await db('users').select().where('email', user.email)
-  //   res.send(users)
-  // }
 }
 const getMe = ({ db }) => async(req, res) => {
   const userDB = await db('users').select().where('id', res.locals.user.id)

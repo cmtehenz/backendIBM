@@ -1,5 +1,6 @@
 const router = require('express').Router()
-const controller = require('../controllers/users')
+
+const controller = require('../controllers/missions')
 
 const db = require('../database/db')
 
