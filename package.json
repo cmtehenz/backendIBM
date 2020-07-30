@@ -8,19 +8,22 @@
     "node": "10.*"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM-Cloud/get-started-node"
+    "url": "https://github.com/cmtehenz/backendIBM.git"
   },
   "dependencies": {
     "@cloudant/cloudant": "^3.0.2",
-    "body-parser": "^1.17.x",
+    "body-parser": "^1.19.0",
     "cfenv": "^1.0.x",
+    "cors": "^2.8.5",
     "dotenv": "^4.0.0",
     "express": "^4.15.x",
-    "mongodb": "^3.0.10"
+    "knex": "^0.21.2",
+    "mongodb": "^3.0.10",
+    "sqlite3": "^5.0.0"
   },
   "author": "Gustavo Costa",
   "license": "MIT"
