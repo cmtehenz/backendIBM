@@ -24,16 +24,11 @@ const getMe = ({ db }) => async(req, res) => {
   res.send(userDB[0])
 }
 const getOne = ({ db }) => async(req, res) => {
-  const { user } = res.locals
-  let id = req.params.id
-  if (user.role === 'user' && id != user.id) {
-    res.status(401)
-    res.send({ error: true })
-  } else {
-    const userDB = await db('users').select().where('id', id)
-    res.send(userDB[0])
-  }
+  let { id } = req.params
+  const userDB = await db('users').select().where('id', id)
+  res.send(userDB[0])
 }
+
 const remove = ({ db }) => async(req, res) => {
   const { user } = res.locals
   const { id } = req.params

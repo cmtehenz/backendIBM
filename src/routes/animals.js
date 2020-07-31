@@ -1,13 +1,14 @@
 const router = require('express').Router()
 
-const controller = require('../controllers/dogs')
+const controller = require('../controllers/animals')
 
 const db = require('../database/db')
 
 router.get('/', controller.get({ db }))
+router.get('/:id', controller.getOne({ db }))
+
 // router.get('/me', controller.getMe({ db }))
 // router.patch('/:id', controller.update({ db }))
-// router.get('/:id', controller.getOne({ db }))
 // router.delete('/:id', controller.remove({ db }))
 
 module.exports = router

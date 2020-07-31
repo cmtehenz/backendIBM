@@ -8,6 +8,7 @@ const knex = require('knex')({
 const initDB = async() => {
   const usersExist = await knex.schema.hasTable('users')
   if (!usersExist) {
+    
     await knex.schema.createTable('users', table => {
       table.increments('id').primary()
       table.string('name')
@@ -21,6 +22,10 @@ const missionsExist = await knex.schema.hasTable('missions')
     await knex.schema.createTable('missions', table => {
       table.increments('id').primary()
       table.string('name')
+      table.integer('vehicle_id')
+      table.integer('animal_id')
+      table.integer('firefither_id')
+      table.string('picture')
       table.string('location') // in seconds
       table.timestamp('created') // utc
     })
@@ -33,117 +38,155 @@ const vehiclesExist = await knex.schema.hasTable('vehicles')
       table.string('picture')
     })
   }
-const dogsExist = await knex.schema.hasTable('dogs')
-if (!dogsExist) {
-  await knex.schema.createTable('dogs', table => {
+const animalsExist = await knex.schema.hasTable('animals')
+if (!animalsExist) {
+  await knex.schema.createTable('animals', table => {
     table.increments('id').primary()
     table.string('name')
     table.string('picture')
+    table.string('description')
   })
 }
 
-const totalDogs = await knex('dogs').select(knex.raw('count(*) as total'))
-if(totalDogs[0].total === 0){
+const totalAnimals = await knex('animals').select(knex.raw('count(*) as total'))
+if(totalAnimals[0].total === 0){
   await knex.insert({
     name: 'Aninha',
-    picture: 'imagem.png',
-  }).into('dogs')
+    picture: 'https://images.dog.ceo/breeds/redbone/n02090379_2836.jpg',
+    description: 'Sniffer dog'
+  }).into('animals')
   await knex.insert({
     name: 'Bob',
-    picture: 'imagem.png',
-  }).into('dogs')
+    picture: 'https://images.dog.ceo/breeds/terrier-norfolk/n02094114_2706.jpg',
+    description: 'Sniffer dog'
+  }).into('animals')
   await knex.insert({
     name: 'Bebel',
-    picture: 'imagem.png',
-  }).into('dogs')
+    picture: 'https://images.dog.ceo/breeds/terrier-toy/n02087046_7191.jpg',
+    description: 'Sniffer dog'
+  }).into('animals')
   await knex.insert({
     name: 'Belinha',
-    picture: 'imagem.png',
-  }).into('dogs')
+    picture: 'https://images.dog.ceo/breeds/hound-walker/n02089867_2559.jpg',
+    description: 'Sniffer dog'
+  }).into('animals')
   await knex.insert({
     name: 'Bento',
-    picture: 'imagem.png',
-  }).into('dogs')
+    picture: 'https://images.dog.ceo/breeds/mix/cheyenne2.jpg',
+    description: 'Sniffer dog'
+  }).into('animals')
   await knex.insert({
     name: 'Chico',
-    picture: 'imagem.png',
-  }).into('dogs')
+    picture: 'https://images.dog.ceo/breeds/eskimo/n02109961_3956.jpg',
+    description: 'Sniffer dog'
+  }).into('animals')
   await knex.insert({
     name: 'Marcia',
-    picture: 'imagem.png',
-  }).into('dogs')
+    picture: 'https://images.dog.ceo/breeds/papillon/n02086910_4609.jpg',
+    description: 'Sniffer dog'
+  }).into('animals')
 
 }
 
 const totalVehicles = await knex('vehicles').select(knex.raw('count(*) as total'))
 if(totalVehicles[0].total === 0){
   await knex.insert({
-    name: 'ABTR – Auto Bomba Tanque Resgate',
-    picture: 'imagem.png',
+    name: 'ARTP - Auto Rescue Tank Pump',
+    picture: 'https://static8.depositphotos.com/1396879/868/i/450/depositphotos_8687557-stock-photo-fire-truck.jpg',
   }).into('vehicles')
   await knex.insert({
-    name: 'ABT – Auto Bomba Tanque',
-    picture: 'imagem.png',
+    name: 'ATP - Auto Tank Pump',
+    picture: 'https://g1.globo.com/platb/files/2128/2014/09/carro-bombeiros.jpg',
   }).into('vehicles')
   await knex.insert({
-    name: 'AA – Auto Ambulância',
-    picture: 'imagem.png',
+    name: 'ABS - Auto Search and Rescue Civil Defense',
+    picture: 'https://www.itapema.sc.gov.br/wp-content/uploads/2019/06/IMG_4596-300x200.jpg',
   }).into('vehicles')
   await knex.insert({
-    name: 'ABS – Auto Busca e Salvamento Defesa Civil',
-    picture: 'imagem.png',
+    name: 'AA - Auto Ambulance',
+    picture: 'https://i0.wp.com/quatis.rj.gov.br/wp-content/uploads/2019/11/P%C3%81G-8-2%C2%AA-FOTO.jpg?fit=1032%2C774&ssl=1',
   }).into('vehicles')
   await knex.insert({
-    name: 'AA – Auto Ambulância',
-    picture: 'imagem.png',
+    name: 'ACS - Auto Command Station',
+    picture: 'https://i0.wp.com/quatis.rj.gov.br/wp-content/uploads/2019/11/P%C3%81G-8-2%C2%AA-FOTO.jpg?fit=1032%2C774&ssl=1',
   }).into('vehicles')
   await knex.insert({
-    name: 'APC – Auto Posto de Comando',
-    picture: 'imagem.png',
+    name: 'APT - Auto Personnel Transport',
+    picture: 'https://i0.wp.com/quatis.rj.gov.br/wp-content/uploads/2019/11/P%C3%81G-8-2%C2%AA-FOTO.jpg?fit=1032%2C774&ssl=1',
   }).into('vehicles')
   await knex.insert({
-    name: 'ATP – Auto Transporte de Pessoal',
-    picture: 'imagem.png',
+    name: 'RW - Rescue Watercraft',
+    picture: 'https://marineboats.com.br/website/wp-content/uploads/2019/01/zenit-400.png',
   }).into('vehicles')
   await knex.insert({
-    name: 'MAS – Moto Aquática de Salvamento',
-    picture: 'imagem.png',
-  }).into('vehicles')
-  await knex.insert({
-    name: 'RPA – Aeronave Remotamente Tripulada',
-    picture: 'imagem.png',
+    name: 'RMA - Remotely Manned Aircraft',
+    picture: 'https://lh3.googleusercontent.com/proxy/3BHnMkw9ZyPZL9yxGmLedd5A1d9xoE5PVxADH35z2MAdrOTUepRiwmJ7-aPZij8FRC0cqZmuTourlCtO9p-8TQCBnRoGeqhrBx_VW5SUY9p-sWN2Zk58Y5HzYQJtFMfVEJYRhJfcJgdZKYDCZul2-w',
   }).into('vehicles')
 }
 
 const totalMissions = await knex('missions').select(knex.raw('count(*) as total'))
 if(totalMissions[0].total === 0){
   await knex.insert({
-    name: 'Incêndio - Florestal',
-    location: 'Avenida da Palmeiras',
+    name: 'Forest Fire',
+    location: 'Av da Palmeiras',
+    vehicle_id: 1,
+    firefither_id: 2,
+    animal_id: 3,
+    picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',
+    created: new Date()
   }).into('missions')
   await knex.insert({
-    name: 'Incendio - Residencial',
-    location: 'Rua Nossa senhora',
+    name: 'Residential Fire',
+    location: 'Street Nossa senhora',
+    vehicle_id: 4,
+    firefither_id: 4,
+    animal_id: 1,
+    picture: 'https://jornal.usp.br/wp-content/uploads/20160620_00_radio-incendio.jpg',
+    created: new Date()
   }).into('missions')
   await knex.insert({
-    name: 'Resgate Animal',
-    location: 'Rua Comendador - 20', 
+    name: 'Animal rescue',
+    location: 'Street Comendador - 20',
+    vehicle_id: 2,
+    firefither_id: 3,
+    animal_id: 1, 
+    picture: 'https://static.cdn.pleno.news/2017/08/2017-08-31_resgate_de_animais.jpg',
+    created: new Date()
   }).into('missions')
 }
 
 const totalUsers = await knex('users').select(knex.raw('count(*) as total'))
   if (totalUsers[0].total === 0) {
     await knex.insert({
-      name: 'Daniel',
-      email: 'admin@admin.com',
-      picture: "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-27.jpg",
-      role: "sargento",
+      name: 'John Smith',
+      email: 'john@admin.com',
+      picture: "https://f.i.uol.com.br/fotografia/2019/12/10/15759897045defb1c8718ae_1575989704_3x2_md.jpg",
+      role: "Sergeant",
     }).into('users')
     await knex.insert({
-      name: 'Rasmus ras',
+      name: 'Bruce Lee',
       email: 'teste@admin.com',
-      picture: "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-27.jpg",
+      picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHr9IOrZoemGi3iFyDxS2jWvjvuGIky-LqIQ&usqp=CAU",
+      //picture: "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-27.jpg",
       role: "Major",
+    }).into('users')
+    await knex.insert({
+      name: 'Bruce Wayne',
+      email: 'batman@exemplo.com',
+      picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwDp9ijo7X9Iyv4XWoEf0LSVRHQI8ucI1p3g&usqp=CAU",      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Sharon Parker',
+      email: 'shashapa@exemplo.com',
+      picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQAcRsihkkYI0TZoai7COLhWq75uoqXoyA-qA&usqp=CAU",      
+      role: "Major",
+    }).into('users')
+    await knex.insert({
+      name: 'Diana Prince',
+      email: 'wonder@exemplo.com',
+      picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQOzS-OZpR6cIVgrQQ1xMSVwdFUU44AbXmWRQ&usqp=CAU",      
+      role: "Sergeant",
     }).into('users')
   }
 }
