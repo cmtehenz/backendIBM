@@ -25,8 +25,22 @@ const getOne = ({ db }) => async(req, res) => {
         name: "Bruce Lee",
         email: "teste@admin.com",
         picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHr9IOrZoemGi3iFyDxS2jWvjvuGIky-LqIQ&usqp=CAU",
-        role: "Major"
+        role: "Major",
       },
+      {
+        id: 8,
+        name: 'Valerie D. Miller',
+        email: 'valerie@exemple.com',
+        picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+        role: "Sergeant",
+      },
+      {
+        id: 10,
+        name: 'Robert D. Jackson',
+        email: 'robert@exemple.com',
+        picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+        role: "Sergeant",
+      }
       
     ]
  

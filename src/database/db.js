@@ -130,7 +130,7 @@ if(totalMissions[0].total === 0){
     name: 'Forest Fire',
     location: 'Av da Palmeiras',
     vehicle_id: 1,
-    firefither_id: 2,
+    firefither_id: 1,
     animal_id: 3,
     picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',
     created: new Date()
@@ -139,7 +139,7 @@ if(totalMissions[0].total === 0){
     name: 'Residential Fire',
     location: 'Street Nossa senhora',
     vehicle_id: 4,
-    firefither_id: 4,
+    firefither_id: 5,
     animal_id: 1,
     picture: 'https://jornal.usp.br/wp-content/uploads/20160620_00_radio-incendio.jpg',
     created: new Date()
@@ -148,7 +148,7 @@ if(totalMissions[0].total === 0){
     name: 'Animal rescue',
     location: 'Street Comendador - 20',
     vehicle_id: 2,
-    firefither_id: 3,
+    firefither_id: 7,
     animal_id: 1, 
     picture: 'https://static.cdn.pleno.news/2017/08/2017-08-31_resgate_de_animais.jpg',
     created: new Date()
@@ -186,6 +186,108 @@ const totalUsers = await knex('users').select(knex.raw('count(*) as total'))
       name: 'Diana Prince',
       email: 'wonder@exemplo.com',
       picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQOzS-OZpR6cIVgrQQ1xMSVwdFUU44AbXmWRQ&usqp=CAU",      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Paul R. Bush',
+      email: 'paul@exemple.com',
+      picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Laura M. Belk',
+      email: 'laura@exemple.com',
+      picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Trisha J. Kramer',
+      email: 'trisha@exemple.com',
+      picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Fritz C. Gutierrez',
+      email: 'fritz@exemple.com',
+      picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Isabel A. Murillo',
+      email: 'isabel@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Donna K. Pedigo',
+      email: 'donna@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Jeffrey L. Ford',
+      email: 'jeffrey@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Edward H. McCoy',
+      email: 'edward@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Valerie D. Miller',
+      email: 'valerie@exemple.com',
+      picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Robert D. Jackson',
+      email: 'robert@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Jenniffer J. Penton',
+      email: 'jenniffer@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Doris K. Johnson',
+      email: 'doris@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Hang J. Smith',
+      email: 'hang@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Juanita J. Bach',
+      email: 'juanita@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Kevin S. Doyon',
+      email: 'kevin@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Judy J. Fisher',
+      email: 'judy@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
+      role: "Sergeant",
+    }).into('users')
+    await knex.insert({
+      name: 'Hilton B. White',
+      email: 'hilton@exemple.com',
+       picture: 'https://static.poder360.com.br/2017/06/incendio.jpg',      
       role: "Sergeant",
     }).into('users')
   }
