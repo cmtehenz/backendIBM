@@ -2,10 +2,34 @@
 
 
 This API was written in NodeJS (ExpressJS + JWT + SQLite3). The idea is to provide an API to handle data in a mobile app. So basically, we need to handle four entities/endpoints: `users`, `animals`, `vehicles`
-and missions.
+and `missions`.
 
 
-# Endpoints
+# server instalation
+For the instalation the server you can get from https://github.com/cmtehenz/backendIBM
+```sh
+$ git clone https://github.com/cmtehenz/backendIBM.git
+```
+after 
+```sh
+$ cd server-skipthedishes
+```
+then
+```sh
+$ yarn install
+```
+or
+```sh
+$ npm install
+```
+finaly run
+```sh
+$ npm run 
+```
+or
+```sh
+$ yarn start 
+```
 
 ## Firefighters:
 
